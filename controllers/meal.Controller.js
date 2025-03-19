@@ -40,4 +40,15 @@ export const generateMealPlan = async (req, res) => {
     console.error("❌ Error in generateMealPlan:", error);
     res.status(500).json({ error: error.message });
   }
+
+};
+export const getMealPlansByUser = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const mealPlans = await MealPlan.find({ userId }).populate("userId", "name email");
+    res.status(200).json(mealPlans);
+  } catch (error) {
+    console.error("Error fetching meal plans:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 };
