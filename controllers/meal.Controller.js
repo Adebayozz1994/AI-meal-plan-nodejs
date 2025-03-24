@@ -16,7 +16,7 @@ export const generateMealPlan = async (req, res) => {
       return res.status(400).json({ error: "User ID and goal are required" });
     }
 
-    const prompt = `Generate a 7-day meal plan for a person with the goal: ${goal}. Avoid these allergies: ${allergies?.join(
+    const prompt = `Generate a 7-day nigeria or african meal plan for a person with the goal: ${goal}. Avoid these allergies: ${allergies?.join(
       ", "
     )}. Each meal should include calories and macronutrients.`;
 
